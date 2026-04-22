@@ -1,0 +1,25 @@
+{
+  "overview": "An AI-first CRM module for life science field representatives to log and manage interactions with Healthcare Professionals. Features a split-screen layout with a structured form on the left and an AI chat assistant on the right that understands natural language, extracts structured data, auto-fills the form, and suggests follow-up actions using the Groq API.",
+  "features": [
+    "Split-screen layout: structured HCP interaction form on the left, AI chat assistant on the right",
+    "9-field interaction form: HCP Name, Interaction Type, Date/Time, Topics, Materials, Samples, Sentiment, Outcomes, Follow-ups",
+    "AI chat panel that understands natural language and auto-fills the form",
+    "5 AI tools: Extract Entities, Log Interaction, Edit Interaction, Summarize, Suggest Follow-ups",
+    "Groq API integration (gemma2-9b-it) for intelligent data extraction and summarization",
+    "Interaction history with search and edit capabilities",
+    "Zustand state management for form, chat, and interaction history",
+    "Google Inter font, clean modern Tailwind CSS design"
+  ],
+  "category": "productivity",
+  "tags": [
+    "crm",
+    "healthcare",
+    "ai",
+    "langraph",
+    "groq",
+    "hcp",
+    "interaction-logging",
+    "pharma"
+  ],
+  "last_updated": "2026-04-22T07:59:11.024Z"
+}

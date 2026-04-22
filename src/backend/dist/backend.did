@@ -1,0 +1,74 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type UpdateInteractionRequest = 
+ record {
+   datetime: opt text;
+   followUp: opt text;
+   hcpName: opt text;
+   interactionType: opt text;
+   materialsShared: opt text;
+   outcomes: opt text;
+   samples: opt nat;
+   sentiment: opt text;
+   topics: opt text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type Timestamp = int;
+type Result = 
+ variant {
+   err: text;
+   ok: bool;
+ };
+type InteractionRecord = 
+ record {
+   createdAt: Timestamp;
+   datetime: text;
+   followUp: text;
+   hcpName: text;
+   id: nat;
+   interactionType: text;
+   materialsShared: text;
+   outcomes: text;
+   samples: nat;
+   sentiment: text;
+   topics: text;
+ };
+type AiChatResponse = 
+ record {
+   message: text;
+   structuredData: text;
+   tool: text;
+ };
+service : {
+  editInteraction: (id: nat, req: UpdateInteractionRequest) -> (Result);
+  getGroqApiKey: () -> (text) query;
+  getHcpNames: () -> (vec text) query;
+  getInteractionById: (id: nat) -> (opt InteractionRecord) query;
+  getInteractions: () -> (vec InteractionRecord) query;
+  logInteraction: (hcpName: text, interactionType: text, datetime: text,
+   topics: text, materialsShared: text, samples: nat, sentiment: text,
+   outcomes: text, followUp: text) -> (nat);
+  processAiChat: (userMessage: text, interactionContext: opt text) ->
+   (AiChatResponse);
+  setGroqApiKey: (key: text) -> ();
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+}

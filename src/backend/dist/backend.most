@@ -1,0 +1,41 @@
+// Version: 1.0.0
+type InteractionRecord__251572357 =
+  {
+    createdAt : Timestamp__476227369;
+    datetime : Text;
+    followUp : Text;
+    hcpName : Text;
+    id : Nat;
+    interactionType : Text;
+    materialsShared : Text;
+    outcomes : Text;
+    samples : Nat;
+    sentiment : Text;
+    topics : Text
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Timestamp__301639476 = Int;
+type Timestamp__476227369 = Timestamp__301639476;
+actor {
+  stable GROQ_MODEL : Text;
+  stable GROQ_URL : Text;
+  stable groqApiKeyRef :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Text]];
+      var elementIndex : Nat__490723111
+    };
+  stable interactions :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?InteractionRecord__251572357]];
+      var elementIndex : Nat__490723111
+    };
+  stable nextIdRef :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Nat]];
+      var elementIndex : Nat__490723111
+    }
+};
